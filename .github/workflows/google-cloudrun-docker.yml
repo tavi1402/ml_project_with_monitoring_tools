@@ -91,7 +91,7 @@ jobs:
 
       - name: Build and Push Container
         run: |-
-          docker-compose -f docker-compose.yml build
+          docker-compose -f docker-compose.yaml build
           docker tag airflowimage "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.GAR_NAME }}/${{ env.SERVICE }}:${{ github.sha }}" ./
           docker push "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.GAR_NAME }}/${{ env.SERVICE }}:${{ github.sha }}"
 
