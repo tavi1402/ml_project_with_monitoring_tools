@@ -52,7 +52,7 @@ env:
   PROJECT_ID: tavishi # TODO: update Google Cloud project id
   GAR_NAME: tavishi-github-action # TODO: update Artifact Registry name
   GAR_LOCATION: europe-west2 # TODO: update Artifact Registry location
-  SERVICE: Airflow # TODO: update Cloud Run service name
+  SERVICE: tavishi-airflow # TODO: update Cloud Run service name
   REGION: europe-west2 # TODO: update Cloud Run service region
 
 jobs:
