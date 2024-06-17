@@ -12,5 +12,6 @@ Flask
 dvc
 apache-airflow==2.8.0
 pendulum
+Flask-Session
 
 -e .
