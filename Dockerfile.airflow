@@ -1,26 +1,19 @@
 FROM python:3.8-slim-buster
 
-# Switch to root user
-USER root
-
-# Create and set working directory
-RUN mkdir /app
+# Create and set the working directory
 WORKDIR /app
 
 # Copy application code
 COPY . /app/
 
 # Install dependencies
-RUN pip3 install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Set environment variables for Airflow
 ENV AIRFLOW_HOME="/app/airflow"
 ENV AIRFLOW_CORE_DAGBAG_IMPORT_TIMEOUT=1000
 ENV AIRFLOW_CORE_ENABLE_XCOM_PICKING=True
 ENV AIRFLOW__CORE__DEFAULT_TIMEZONE="UTC"
-
-# Initialize Airflow database
-RUN airflow db init
 
 # Copy and set permissions for the start script
 COPY start.sh /start.sh
