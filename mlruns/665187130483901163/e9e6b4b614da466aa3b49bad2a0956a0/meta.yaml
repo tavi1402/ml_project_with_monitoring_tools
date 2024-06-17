@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/665187130483901163/e9e6b4b614da466aa3b49bad2a0956a0/artifacts
+end_time: 1718441138631
+entry_point_name: ''
+experiment_id: '665187130483901163'
+lifecycle_stage: active
+run_id: e9e6b4b614da466aa3b49bad2a0956a0
+run_name: capable-tern-476
+run_uuid: e9e6b4b614da466aa3b49bad2a0956a0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1718441028322
+status: 4
+tags: []
+user_id: any

@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/0/135a0efca91d44da9ca30b34209f2514/artifacts
+deleted_time: 1718440880647
+end_time: 1718440653632
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: 135a0efca91d44da9ca30b34209f2514
+run_name: kindly-fawn-550
+run_uuid: 135a0efca91d44da9ca30b34209f2514
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1718440653521
+status: 4
+tags: []
+user_id: any

@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/0/87a6c0f32f454a2287ab79124ecec8d6/artifacts
+deleted_time: 1718440880638
+end_time: 1718440543986
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: 87a6c0f32f454a2287ab79124ecec8d6
+run_name: marvelous-moth-861
+run_uuid: 87a6c0f32f454a2287ab79124ecec8d6
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1718440543849
+status: 4
+tags: []
+user_id: any

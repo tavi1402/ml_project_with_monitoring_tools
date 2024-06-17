@@ -1,0 +1,16 @@
+pandas
+numpy
+seaborn
+missingno
+scikit-learn
+category-encoders
+imbalanced-learn
+xgboost
+lightgbm
+catboost
+Flask
+dvc
+apache-airflow
+pendulum
+
+-e .

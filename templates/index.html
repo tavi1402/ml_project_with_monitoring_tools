@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Default Predictor</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Loan Default Predictor</h1>
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <label for="Client_Income">Client Income</label>
+                <input type="number" step="any" class="form-control" id="Client_Income" name="Client_Income" required>
+            </div>
+            <div class="form-group">
+                <label for="Car_Owned">Car Owned</label>
+                <select class="form-control" id="Car_Owned" name="Car_Owned">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Active_Loan">Active Loan</label>
+                <select class="form-control" id="Active_Loan" name="Active_Loan">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Client_Income_Type">Client Income Type</label>
+                <select class="form-control" id="Client_Income_Type" name="Client_Income_Type">
+                    <option value="Businessman">Businessman</option>
+                    <option value="Commercial">Commercial</option>
+                    <option value="Govt Job">Govt Job</option>
+                    <option value="Maternity leave">Maternity leave</option>
+                    <option value="Retired">Retired</option>
+                    <option value="Service">Service</option>
+                    <option value="Student">Student</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Client_Education">Client Education</label>
+                <select class="form-control" id="Client_Education" name="Client_Education">
+                    <option value="Junior secondary">Junior secondary</option>
+                    <option value="Secondary">Secondary</option>
+                    <option value="Graduation">Graduation</option>
+                    <option value="Graduation dropout">Graduation dropout</option>
+                    <option value="Post Grad">Post Grad</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Client_Marital_Status">Client Marital Status</label>
+                <select class="form-control" id="Client_Marital_Status" name="Client_Marital_Status">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="W">W</option>
+                    <option value="D">D</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Client_Gender">Client Gender</label>
+                <select class="form-control" id="Client_Gender" name="Client_Gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Loan_Contract_Type">Loan Contract Type</label>
+                <select class="form-control" id="Loan_Contract_Type" name="Loan_Contract_Type">
+                    <option value="CL">CL</option>
+                    <option value="RL">RL</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Client_Housing_Type">Client Housing Type</label>
+                <select class="form-control" id="Client_Housing_Type" name="Client_Housing_Type">
+                    <option value="Family">Family</option>
+                    <option value="Home">Home</option>
+                    <option value="Municipal">Municipal</option>
+                    <option value="Office">Office</option>
+                    <option value="Rental">Rental</option>
+                    <option value="Shared">Shared</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Population_Region_Relative">Population Region Relative</label>
+                <input type="number" step="any" class="form-control" id="Population_Region_Relative" name="Population_Region_Relative" required>
+            </div>
+            <div class="form-group">
+                <label for="Age_Days">Age Days</label>
+                <input type="number" step="any" class="form-control" id="Age_Days" name="Age_Days" required>
+            </div>
+            <div class="form-group">
+                <label for="Employed_Days">Employed Days</label>
+                <input type="number" step="any" class="form-control" id="Employed_Days" name="Employed_Days" required>
+            </div>
+            <div class="form-group">
+                <label for="Registration_Days">Registration Days</label>
+                <input type="number" step="any" class="form-control" id="Registration_Days" name="Registration_Days" required>
+            </div>
+            <div class="form-group">
+                <label for="ID_Days">ID Days</label>
+                <input type="number" step="any" class="form-control" id="ID_Days" name="ID_Days" required>
+            </div>
+            <div class="form-group">
+                <label for="Homephone_Tag">Homephone Tag</label>
+                <select class="form-control" id="Homephone_Tag" name="Homephone_Tag">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Workphone_Working">Workphone Working</label>
+                <select class="form-control" id="Workphone_Working" name="Workphone_Working">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Client_Occupation">Client Occupation</label>
+                <select class="form-control" id="Client_Occupation" name="Client_Occupation">
+                    <option value="Accountants">Accountants</option>
+                    <option value="Cleaning">Cleaning</option>
+                    <option value="Cooking">Cooking</option>
+                    <option value="Core">Core</option>
+                    <option value="Drivers">Drivers</option>
+                    <option value="High skill tech">High skill tech</option>
+                    <option value="HR">HR</option>
+                    <option value="IT">IT</option>
+                    <option value="Laborers">Laborers</option>
+                    <option value="Low-skill Laborers">Low-skill Laborers</option>
+                    <option value="Managers">Managers</option>
+                    <option value="Medicine">Medicine</option>
+                    <option value="Private service">Private service</option>
+                    <option value="Realty agents">Realty agents</option>
+                    <option value="Sales">Sales</option>
+                    <option value="Secretaries">Secretaries</option>
+                    <option value="Security">Security</option>
+                    <option value="Waiters/barmen">Waiters/barmen</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Cleint_City_Rating">Client City Rating</label>
+                <input type="number" step="any" class="form-control" id="Cleint_City_Rating" name="Cleint_City_Rating" required>
+            </div>
+            <div class="form-group">
+                <label for="Client_Permanent_Match_Tag">Client Permanent Match Tag</label>
+                <select class="form-control" id="Client_Permanent_Match_Tag" name="Client_Permanent_Match_Tag">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Client_Contact_Work_Tag">Client Contact Work Tag</label>
+                <select class="form-control" id="Client_Contact_Work_Tag" name="Client_Contact_Work_Tag">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Type_Organization">Type Organization</label>
+                <select class="form-control" id="Type_Organization" name="Type_Organization">
+                    <option value="Advertising">Advertising</option>
+                    <option value="Agriculture">Agriculture</option>
+                    <option value="Bank">Bank</option>
+                    <option value="Business Entity Type 1">Business Entity Type 1</option>
+                    <option value="Business Entity Type 2">Business Entity Type 2</option>
+                    <option value="Business Entity Type 3">Business Entity Type 3</option>
+                    <option value="Cleaning">Cleaning</option>
+                    <option value="Construction">Construction</option>
+                    <option value="Culture">Culture</option>
+                    <option value="Electricity">Electricity</option>
+                    <option value="Emergency">Emergency</option>
+                    <option value="Government">Government</option>
+                    <option value="Hotel">Hotel</option>
+                    <option value="Housing">Housing</option>
+                    <option value="Industry: type 1">Industry: type 1</option>
+                    <option value="Industry: type 2">Industry: type 2</option>
+                    <option value="Industry: type 3">Industry: type 3</option>
+                    <option value="Industry: type 4">Industry: type 4</option>
+                    <option value="Industry: type 5">Industry: type 5</option>
+                    <option value="Industry: type 6">Industry: type 6</option>
+                    <option value="Industry: type 7">Industry: type 7</option>
+                    <option value="Industry: type 8">Industry: type 8</option>
+                    <option value="Industry: type 9">Industry: type 9</option>
+                    <option value="Industry: type 10">Industry: type 10</option>
+                    <option value="Industry: type 11">Industry: type 11</option>
+                    <option value="Industry: type 12">Industry: type 12</option>
+                    <option value="Industry: type 13">Industry: type 13</option>
+                    <option value="Insurance">Insurance</option>
+                    <option value="Kindergarten">Kindergarten</option>
+                    <option value="Legal Services">Legal Services</option>
+                    <option value="Medicine">Medicine</option>
+                    <option value="Military">Military</option>
+                    <option value="Mobile">Mobile</option>
+                    <option value="Other">Other</option>
+                    <option value="Police">Police</option>
+                    <option value="Postal">Postal</option>
+                    <option value="Realtor">Realtor</option>
+                    <option value="Religion">Religion</option>
+                    <option value="Restaurant">Restaurant</option>
+                    <option value="School">School</option>
+                    <option value="Security">Security</option>
+                    <option value="Security Ministries">Security Ministries</option>
+                    <option value="Self-employed">Self-employed</option>
+                    <option value="Services">Services</option>
+                    <option value="Telecom">Telecom</option>
+                    <option value="Trade: type 1">Trade: type 1</option>
+                    <option value="Trade: type 2">Trade: type 2</option>
+                    <option value="Trade: type 3">Trade: type 3</option>
+                    <option value="Trade: type 4">Trade: type 4</option>
+                    <option value="Trade: type 5">Trade: type 5</option>
+                    <option value="Trade: type 6">Trade: type 6</option>
+                    <option value="Trade: type 7">Trade: type 7</option>
+                    <option value="Transport: type 1">Transport: type 1</option>
+                    <option value="Transport: type 2">Transport: type 2</option>
+                    <option value="Transport: type 3">Transport: type 3</option>
+                    <option value="Transport: type 4">Transport: type 4</option>
+                    <option value="University">University</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Score_Source_2">Score Source 2</label>
+                <input type="number" step="any" class="form-control" id="Score_Source_2" name="Score_Source_2" required>
+            </div>
+            <div class="form-group">
+                <label for="Score_Source_3">Score Source 3</label>
+                <input type="number" step="any" class="form-control" id="Score_Source_3" name="Score_Source_3" required>
+            </div>
+            <div class="form-group">
+                <label for="Phone_Change">Phone Change</label>
+                <input type="number" step="any" class="form-control" id="Phone_Change" name="Phone_Change" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        {% if results %}
+            <h2 class="mt-5">Prediction Result:</h2>
+            <p style="font-size: 1.5em; background-color: rgba(133, 127, 127, 0.3); color: black; display: inline-block; padding: 10px; border-radius: 5px;">
+                {{ results }}
+            </p>
+        {% endif %}
+    </div>
+</body>
+</html>
+
+
+
+<!-- ============================================================================================================================================ -->
+<!-- ============================================================================================================================================ -->
+<!-- ============================================================================================================================================ -->
+<!-- ============================================================================================================================================ -->
+<!-- ============================================================================================================================================ -->
+<!-- ============================================================================================================================================ -->
+<!-- ============================================================================================================================================ -->
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Default Predictor</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Loan Default Predictor</h1>
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <label for="Client_Income">Client Income</label>
+                <input type="number" step="any" class="form-control" id="Client_Income" name="Client_Income" required>
+            </div>
+            <div class="form-group">
+                <label for="Car_Owned">Car Owned</label>
+                <input type="text" class="form-control" id="Car_Owned" name="Car_Owned" required>
+            </div>
+            <div class="form-group">
+                <label for="Active_Loan">Active Loan</label>
+                <input type="text" class="form-control" id="Active_Loan" name="Active_Loan" required>
+            </div>
+            <div class="form-group">
+                <label for="Credit_Amount">Credit Amount</label>
+                <input type="number" step="any" class="form-control" id="Credit_Amount" name="Credit_Amount" required>
+            </div>
+            <div class="form-group">
+                <label for="Loan_Annuity">Loan Annuity</label>
+                <input type="number" step="any" class="form-control" id="Loan_Annuity" name="Loan_Annuity" required>
+            </div>
+            <div class="form-group">
+                <label for="Client_Income_Type">Client Income Type</label>
+                <input type="text" class="form-control" id="Client_Income_Type" name="Client_Income_Type" required>
+            </div>
+            <div class="form-group">
+                <label for="Client_Education">Client Education</label>
+                <input type="text" class="form-control" id="Client_Education" name="Client_Education" required>
+            </div>
+            <div class="form-group">
+                <label for="Client_Marital_Status">Client Marital Status</label>
+                <input type="text" class="form-control" id="Client_Marital_Status" name="Client_Marital_Status" required>
+            </div>
+            <div class="form-group">
+                <label for="Client_Gender">Client Gender</label>
+                <input type="text" class="form-control" id="Client_Gender" name="Client_Gender" required>
+            </div>
+            <div class="form-group">
+                <label for="Loan_Contract_Type">Loan Contract Type</label>
+                <input type="text" class="form-control" id="Loan_Contract_Type" name="Loan_Contract_Type" required>
+            </div>
+            <div class="form-group">
+                <label for="Client_Housing_Type">Client Housing Type</label>
+                <input type="text" class="form-control" id="Client_Housing_Type" name="Client_Housing_Type" required>
+            </div>
+            <div class="form-group">
+                <label for="Population_Region_Relative">Population Region Relative</label>
+                <input type="number" step="any" class="form-control" id="Population_Region_Relative" name="Population_Region_Relative" required>
+            </div>
+            <div class="form-group">
+                <label for="Age_Days">Age Days</label>
+                <input type="number" step="any" class="form-control" id="Age_Days" name="Age_Days" required>
+            </div>
+            <div class="form-group">
+                <label for="Employed_Days">Employed Days</label>
+                <input type="number" step="any" class="form-control" id="Employed_Days" name="Employed_Days" required>
+            </div>
+            <div class="form-group">
+                <label for="Registration_Days">Registration Days</label>
+                <input type="number" step="any" class="form-control" id="Registration_Days" name="Registration_Days" required>
+            </div>
+            <div class="form-group">
+                <label for="ID_Days">ID Days</label>
+                <input type="number" step="any" class="form-control" id="ID_Days" name="ID_Days" required>
+            </div>
+            <div class="form-group">
+                <label for="Homephone_Tag">Homephone Tag</label>
+                <input type="text" class="form-control" id="Homephone_Tag" name="Homephone_Tag" required>
+            </div>
+            <div class="form-group">
+                <label for="Workphone_Working">Workphone Working</label>
+                <input type="text" class="form-control" id="Workphone_Working" name="Workphone_Working" required>
+            </div>
+            <div class="form-group">
+                <label for="Client_Occupation">Client Occupation</label>
+                <input type="text" class="form-control" id="Client_Occupation" name="Client_Occupation" required>
+            </div>
+            <div class="form-group">
+                <label for="Cleint_City_Rating">Client City Rating</label>
+                <input type="number" step="any" class="form-control" id="Cleint_City_Rating" name="Cleint_City_Rating" required>
+            </div>
+            <div class="form-group">
+                <label for="Client_Permanent_Match_Tag">Client Permanent Match Tag</label>
+                <input type="text" class="form-control" id="Client_Permanent_Match_Tag" name="Client_Permanent_Match_Tag" required>
+            </div>
+            <div class="form-group">
+                <label for="Client_Contact_Work_Tag">Client Contact Work Tag</label>
+                <input type="text" class="form-control" id="Client_Contact_Work_Tag" name="Client_Contact_Work_Tag" required>
+            </div>
+            <div class="form-group">
+                <label for="Type_Organization">Type Organization</label>
+                <input type="text" class="form-control" id="Type_Organization" name="Type_Organization" required>
+            </div>
+            <div class="form-group">
+                <label for="Score_Source_2">Score Source 2</label>
+                <input type="number" step="any" class="form-control" id="Score_Source_2" name="Score_Source_2" required>
+            </div>
+            <div class="form-group">
+                <label for="Score_Source_3">Score Source 3</label>
+                <input type="number" step="any" class="form-control" id="Score_Source_3" name="Score_Source_3" required>
+            </div>
+            <div class="form-group">
+                <label for="Phone_Change">Phone Change</label>
+                <input type="number" step="any" class="form-control" id="Phone_Change" name="Phone_Change" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        {% if results %}
+            <h2 class="mt-5">Prediction Result:</h2>
+            <p>{{ results }}</p>
+        {% endif %}
+    </div>
+</body>
+</html> -->
+
+
+
+<!-- ============================================================================================================================================ -->
+<!-- ============================================================================================================================================ -->
+<!-- ============================================================================================================================================ -->
+<!-- ============================================================================================================================================ -->
+<!-- ============================================================================================================================================ -->
+<!-- ============================================================================================================================================ -->
+<!-- ============================================================================================================================================ -->
+
+
+
+<!-- <html>
+<body>
+    <div class="login">   
+       <form action="{{ url_for('predict')}}" method="post">
+        <h1>
+            <legend>Money Laundering Detection</legend>
+        </h1>
+        <div class="form-group">
+            <label for="From_Bank">From Bank:</label>
+            <input type="text" id="From_Bank" name="From_Bank" placeholder="From Bank (int)">
+        </div>
+    
+        <div class="form-group">
+            <label for="Sender_Account">Sender Account:</label>
+            <input type="text" id="Sender_Account" name="Sender_Account" placeholder="Sender Account (str)">
+        </div>
+    
+        <div class="form-group">
+            <label for="To_Bank">To Bank:</label>
+            <input type="text" id="To_Bank" name="To_Bank" placeholder="To Bank (int)">
+        </div>
+
+        <div class="form-group">
+            <label for="Receiver_Account">Receiver Account:</label>
+            <input type="text" id="Receiver_Account" name="Receiver_Account" placeholder="Receiver Account (str)">
+        </div>
+    
+        <div class="form-group">  
+            <label for="Amount_Received">Amount Received:</label>
+            <input type="text" id="Amount_Received" name="Amount_Received" placeholder="Amount Received (float)">
+        </div>
+        
+        <div class="form-group">
+            <label for="Receiving_Currency">Receiving Currency:</label>
+            <input type="text" id="Receiving_Currency" name="Receiving_Currency" placeholder="Receiving Currency (str)">
+        </div>
+      
+        <div class="form-group">
+            <label for="Amount_Paid">Amount Paid:</label>
+            <input type="text" id="Amount_Paid" name="Amount_Paid" placeholder="Amount Paid (float)">
+        </div>
+      
+        <div class="form-group">
+            <label for="Payment_Currency">Payment Currency:</label>
+            <input type="text" id="Payment_Currency" name="Payment_Currency" placeholder="Payment Currency (str)">
+        </div> 
+        
+        <div class="form-group">
+            <label for="Payment_Format">Payment Format:</label>
+            <input type="text" id="Payment_Format" name="Payment_Format" placeholder="Payment Format (str)">
+        </div>
+
+        <div class="form-group">
+            <label for="Day">Day:</label>
+            <input type="text" id="Day" name="Day" placeholder="Day (int)">
+        </div>
+
+        <div class="form-group">
+            <label for="Hour">Hour:</label>
+            <input type="text" id="Hour" name="Hour" placeholder="Hour (int)">
+        </div>
+
+        <div class="form-group">
+            <label for="Minute">Minute:</label>
+            <input type="text" id="Minute" name="Minute" placeholder="Minute (int)">
+        </div>
+        
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Check Transaction" required />
+        </div>
+        </form>
+    <h2>
+       The Transaction is {{results}}
+    </h2>
+</body>
+</html> -->

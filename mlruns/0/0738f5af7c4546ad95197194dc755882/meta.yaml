@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/0/0738f5af7c4546ad95197194dc755882/artifacts
+deleted_time: 1718440993241
+end_time: 1718440946593
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: 0738f5af7c4546ad95197194dc755882
+run_name: luminous-asp-959
+run_uuid: 0738f5af7c4546ad95197194dc755882
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1718440835574
+status: 4
+tags: []
+user_id: any

@@ -1,0 +1,17 @@
+version: "3"
+services:
+  # application:
+  #   build: .
+  #   image: flaskimage
+  #   container_name: Loan-default-prediction
+  #   ports:
+  #     - "8080:8080"  # Note the correct format here: "- " before each port mapping
+
+  airflow:
+    build:
+      context: ./
+      dockerfile: Dockerfile.airflow
+    image: airflowimage
+    container_name: Loan-default-prediction-airflow
+    ports:
+      - "8080:8080"
