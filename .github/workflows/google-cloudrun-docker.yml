@@ -52,7 +52,7 @@ env:
   PROJECT_ID: tavishi # TODO: update Google Cloud project id
   GAR_NAME: tavishi-github-action # TODO: update Artifact Registry name
   GAR_LOCATION: europe-west2 # TODO: update Artifact Registry location
-  SERVICE: tavishi14 # TODO: update Cloud Run service name
+  SERVICE: Airflow # TODO: update Cloud Run service name
   REGION: europe-west2 # TODO: update Cloud Run service region
 
 jobs:
@@ -91,7 +91,8 @@ jobs:
 
       - name: Build and Push Container
         run: |-
-          docker build -t "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.GAR_NAME }}/${{ env.SERVICE }}:${{ github.sha }}" ./
+          docker-compose -f docker-compose.yml build
+          docker tag airflowimage "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.GAR_NAME }}/${{ env.SERVICE }}:${{ github.sha }}" ./
           docker push "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.GAR_NAME }}/${{ env.SERVICE }}:${{ github.sha }}"
 
       # END - Docker auth and build
