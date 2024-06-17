@@ -10,7 +10,7 @@ lightgbm
 catboost
 Flask
 dvc
-apache-airflow
+apache-airflow==2.8.0
 pendulum
 
 -e .
